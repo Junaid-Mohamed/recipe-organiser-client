@@ -10,7 +10,7 @@ const RecipesList = () => {
     useEffect(()=>{
         const fetchRecipesData = async() => {
             try{
-                const recipesData = await axios.get("http://localhost:3000/recipes");
+                const recipesData = await axios.get("https://recipe-organiser-delta.vercel.app/recipes");
                 setRecipes(recipesData.data);
             }catch(error){
                 console.log("Error fetching recipes data",error)
@@ -21,11 +21,10 @@ const RecipesList = () => {
         fetchRecipesData();
         
     },[])
-    console.log(recipes);
 
     const handleRecipeDelete = async(recipeId) =>{
         try{
-            const resp = await axios.delete(`http://localhost:3000/recipe/${recipeId}`);
+            const resp = await axios.delete(`https://recipe-organiser-delta.vercel.app/recipe/${recipeId}`);
             alert(resp.data.message); 
             window.location.reload();
         }catch(error){  

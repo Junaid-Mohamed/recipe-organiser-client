@@ -11,7 +11,7 @@ const RecipeDetails = () => {
     useEffect(()=>{
         const fetchRecipe = async () =>{
             try{
-                const resp = await axios.get(`http://localhost:3000/recipe/${recipeId}`)
+                const resp = await axios.get(`https://recipe-organiser-delta.vercel.app/recipe/${recipeId}`)
                 console.log(resp);
                 setRecipe(resp.data);
             }catch(error){
@@ -19,7 +19,7 @@ const RecipeDetails = () => {
             }
         }
         fetchRecipe();
-    },[])
+    },[recipeId])
 
     return(
         <>
