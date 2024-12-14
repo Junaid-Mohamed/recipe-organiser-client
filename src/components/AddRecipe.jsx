@@ -19,11 +19,9 @@ const AddRecipe = () => {
     }
 
     const handleAddRecipe = async () => {
-        // console.log(name,cusine,image,ingredients,instructions);
         try{
             const instructionSteps = instructions.split("\n");
             const ingredientsContent = ingredients.split("\n");
-            console.log("instructions", instructionSteps);
             const addRecipeResp = await axios.post(`https://recipe-organiser-delta.vercel.app/recipe`,{
                 name,
                 cusine,
